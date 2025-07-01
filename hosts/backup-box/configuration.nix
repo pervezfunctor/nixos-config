@@ -42,7 +42,7 @@
   };
 
   programs.git.enable = true;
-  programs.tailscale.enable = true;
+  # programs.tailscale.enable = true;
 
   services.restic.backups = {
     b2 = {
