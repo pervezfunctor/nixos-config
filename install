@@ -12,7 +12,7 @@ KEYFILE="/etc/secrets/keyfile.bin"
 
 # Filesystem and flake settings
 FILESYSTEM="ext4" # change to "zfs" for ZFS root
-FLAKE_REPO="https://github.com/yourname/nixos-backup-box"
+FLAKE_REPO="https://github.com/pervezfunctor/nixos-config"
 FLAKE_URI="nixos-backup-box#$HOSTNAME"
 
 usage() {
