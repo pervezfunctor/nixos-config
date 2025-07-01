@@ -38,7 +38,7 @@
   services.openssh.permitRootLogin = "prohibit-password";
 
   users.users.root = {
-    hashedPassword = $(mkpasswd -m yescrypt -R 18000) # 18000 = 50 years
+    hashedPassword = $y$j9T$2JSxq/oj.r/lRB0dTYYP01$RmiuFEGciDGkdnKj2dU6B7b0zIy0JJNbKa6AhFAr2t3
   };
 
   programs.git.enable = true;
