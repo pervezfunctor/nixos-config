@@ -16,7 +16,7 @@
   boot.loader.efi.canTouchEfiVariables = true;
 
   boot.initrd.luks.devices."cryptroot" = {
-    device = "/dev/vda2";
+    device = "/dev/disk/by-uuid/53c51960-4d4d-48a9-963d-89f5bc366742";
     preLVM = true;
     allowDiscards = true;
     keyFile = "/etc/secrets/keyfile.bin";
