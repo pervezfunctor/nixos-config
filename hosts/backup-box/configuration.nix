@@ -28,9 +28,9 @@
   boot.initrd.network.ssh.authorizedKeys = [
     "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIIcXIDK5n+AIXExMo9nt1PRGcowyvyZUPvhBGRJRGMAl pervez@fedora"
   ];
-  boot.initrd.network.postCommands = ''
-    ip route add 100.64.0.0/10 via <tailscale-gateway-ip>
-  '';
+  # boot.initrd.network.postCommands = ''
+  #   ip route add 100.64.0.0/10 via <tailscale-gateway-ip>
+  # '';
 
   services.openssh.enable = true;
   services.openssh.passwordAuthentication = false;
