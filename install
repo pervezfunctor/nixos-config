@@ -77,7 +77,7 @@ generate_config() {
 
 install_nixos() {
   echo "[+] Installing NixOS from flake $FLAKE_URI..."
-
+  chmod go-rwx /mnt/boot
   nixos-install --flake "$FLAKE_URI"
 }
 
@@ -88,6 +88,7 @@ main() {
   # keyfile_for_luks
   clone_nixos_config
   generate_config
+  ssh-keygen -t ed25519 -f /mnt/etc/ssh/ssh_host_ed25519_key -N ""
   install_nixos
   echo "[+] Setting root password via hashedPassword..."
   echo "To manually override, run: chroot $MOUNTPOINT passwd"

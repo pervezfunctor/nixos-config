@@ -2,6 +2,8 @@
 
 virt-install \
   --name nixos-backup-test \
+  --boot uefi \
+  --machine q35 \
   --ram 4096 \
   --vcpus 2 \
   --disk path=/var/lib/libvirt/images/nixos-backup-test.qcow2,size=20,format=qcow2 \
