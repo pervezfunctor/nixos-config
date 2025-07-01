@@ -1,11 +1,10 @@
 # hosts/backup-box/configuration.nix
-{ config, pkgs, ... }:
-{
-  imports = [ ./hardware-configuration.nix ];
+{ config, pkgs, ... }: {
+  imports = [ /mnt/etc/nixos/hardware-configuration.nix ];
 
   networking.hostName = "backup-box";
   networking.useDHCP = false;
-  networking.interfaces.enp1s0.useDHCP = true;  # or set static IP
+  networking.interfaces.enp1s0.useDHCP = true; # or set static IP
 
   time.timeZone = "UTC";
 
@@ -38,7 +37,8 @@
   services.openssh.permitRootLogin = "prohibit-password";
 
   users.users.root = {
-    hashedPassword = $y$j9T$2JSxq/oj.r/lRB0dTYYP01$RmiuFEGciDGkdnKj2dU6B7b0zIy0JJNbKa6AhFAr2t3
+    hashedPassword =
+      "$y$j9T$2JSxq/oj.r/lRB0dTYYP01$RmiuFEGciDGkdnKj2dU6B7b0zIy0JJNbKa6AhFAr2t3";
   };
 
   programs.git.enable = true;
@@ -74,8 +74,15 @@
   };
 
   environment.systemPackages = with pkgs; [
-    vim htop git curl wget restic tailscale nfs-utils
+    vim
+    htop
+    git
+    curl
+    wget
+    restic
+    tailscale
+    nfs-utils
   ];
 
-  system.stateVersion = "24.05";
+  system.stateVersion = "25.05";
 }

@@ -4,27 +4,27 @@
 { config, lib, pkgs, modulesPath, ... }:
 
 {
-  imports =
-    [ (modulesPath + "/profiles/qemu-guest.nix")
-    ];
+  imports = [ (modulesPath + "/profiles/qemu-guest.nix") ];
 
-  boot.initrd.availableKernelModules = [ "ahci" "xhci_pci" "virtio_pci" "sr_mod" "virtio_blk" ];
+  boot.initrd.availableKernelModules =
+    [ "ahci" "xhci_pci" "virtio_pci" "sr_mod" "virtio_blk" ];
   boot.initrd.kernelModules = [ ];
   boot.kernelModules = [ "kvm-intel" ];
   boot.extraModulePackages = [ ];
 
-  fileSystems."/" =
-    { device = "/dev/disk/by-uuid/53c51960-4d4d-48a9-963d-89f5bc366742";
-      fsType = "ext4";
-    };
+  fileSystems."/" = {
+    device = "/dev/disk/by-uuid/53c51960-4d4d-48a9-963d-89f5bc366742";
+    fsType = "ext4";
+  };
 
-  boot.initrd.luks.devices."cryptroot".device = "/dev/disk/by-uuid/fa819655-46e1-4600-b868-12463e4391a9";
+  boot.initrd.luks.devices."cryptroot".device =
+    "/dev/disk/by-uuid/fa819655-46e1-4600-b868-12463e4391a9";
 
-  fileSystems."/boot" =
-    { device = "/dev/disk/by-uuid/B27D-07EE";
-      fsType = "vfat";
-      options = [ "fmask=0022" "dmask=0022" ];
-    };
+  fileSystems."/boot" = {
+    device = "/dev/disk/by-uuid/B27D-07EE";
+    fsType = "vfat";
+    options = [ "fmask=0022" "dmask=0022" ];
+  };
 
   swapDevices = [ ];
 
