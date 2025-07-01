@@ -1,0 +1,13 @@
+#! /usr/bin/env bash
+
+virt-install \
+  --name nixos-backup-test \
+  --ram 4096 \
+  --vcpus 2 \
+  --disk path=/var/lib/libvirt/images/nixos-backup-test.qcow2,size=20,format=qcow2 \
+  --cdrom /var/lib/libvirt/images/nixos-minimal-25.05.805252.b43c397f6c21-x86_64-linux.iso \
+  --os-variant nixos-unstable \
+  --network network=default,model=virtio \
+  --graphics spice \
+  --console pty,target_type=serial \
+  --video qxl
